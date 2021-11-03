@@ -1,0 +1,34 @@
+<p>編集する</p>
+<p><%= flash[:notice] %></p>
+<%= form_tag ("/#{@account.id}/update") do %>
+    <% if @account.income_or_payment=='income' %>
+        <input type="radio" name="income_or_payment" value="payment">支出
+        <input type="radio" name="income_or_payment" value="income" checked>収入
+    <% else %>
+        <input type="radio" name="income_or_payment" value="payment" checked>支出
+        <input type="radio" name="income_or_payment" value="income">収入
+    <% end %>
+    <p>金額</p>
+    <input type="number" name="amount" value="<%= @account.amount %>">
+    <p>日付</p>
+    <input type="date" name="date" value="<%= @account.date %>">
+    <p>カテゴリ</p>
+    
+    <select name="category_1">
+        <% @category_1.each do |category| %>
+            <% if (category==@account.category_1)%>
+                <option value="<%= category %>" selected><%= category %></option>
+            <% else %>
+                <option value="<%= category %>"><%= category %></option>
+            <% end %>
+        <% end %>
+    </select>
+    
+    <p>小カテゴリ</p>
+    <textarea name="category_2"><%= @account.category_2 %></textarea>
+    <p>メモ</p>
+    <textarea name="memo"><%= @account.memo %></textarea>
+    <br>
+    <input type="submit" value="編集">
+<% end %>
+

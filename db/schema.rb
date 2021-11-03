@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211101082615) do
+ActiveRecord::Schema.define(version: 20211103141857) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "income_or_payment"
+    t.integer "amount"
+    t.date "date"
+    t.string "category_1"
+    t.string "category_2"
+    t.text "memo"
   end
 
 end
