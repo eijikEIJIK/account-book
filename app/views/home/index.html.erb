@@ -1,12 +1,16 @@
-<% @accounts.each do |account| %>
-    <p>
-        <%= account.date %>|
-        <%= account.income_or_payment %>|
-        <%= account.amount %>|
-        <%= account.category_1%>|
-        <%= account.category_2%>|
-    </p>
-    <%= link_to("編集","/#{account.id}/edit") %>
-    <%= link_to("削除","/#{account.id}/destroy") %>
-    <hr>
-<% end %>
+<div class="index container">
+   <% @accounts.each do |account| %>
+   <div class="item">
+        <p>
+            <%= account.date %>|
+            <%= account.income_or_payment %>|
+            <%= account.amount %>|
+            <%= account.category_1%>|
+            <%= account.category_2%>|
+        </p>
+        <%= link_to("編集","/#{account.id}/edit") %>
+        <%= link_to("削除","/#{account.id}/destroy") %>
+    </div>
+    <% end %>          
+</div>    
+

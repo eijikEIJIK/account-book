@@ -9,9 +9,21 @@
   </head>
 
   <body>
-    <h1><a href="/">家計簿アプリ</a></h1>
-    <a href='/new'>記録する</a>
-    <a href='/analysis/show'>分析</a>
+    <header>
+      <div class="container">
+        <div class="title">
+            <a href='/'>家計簿アプリ</a>
+        </div>
+        <ul>
+          <li>
+            <a href='/new'>記録する</a>
+          </li>
+          <li>
+            <a href='/analysis/show'>分析</a>
+          </li>
+        </ul>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

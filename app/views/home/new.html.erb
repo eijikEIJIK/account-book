@@ -1,24 +1,28 @@
-<p><%= flash[:notice] %></p>
-<%= form_tag ('/create') do %>
-    <input type="radio" name="income_or_payment" value="payment">支出
-    <input type="radio" name="income_or_payment" value="income">収入
-    <p>金額</p>
-    <input type="number" name="amount">
-    <p>日付</p>
-    <input type="date" name="date">
+<div class="new container">
+    <div class="input">
+        <p><%= flash[:notice] %></p>
+        <%= form_tag ('/create') do %>
+            <input type="radio" name="income_or_payment" value="payment">支出
+            <input type="radio" name="income_or_payment" value="income">収入
+            <p>金額</p>
+            <input type="number" name="amount">
+            <p>日付</p>
+            <input type="date" name="date">
 
-    <p>カテゴリ</p>
+            <p>カテゴリ</p>
 
-    <select name="category_1">
-        <% @category_1.each do |category| %>
-            <option value="<%= category %>"><%= category %></option>
+            <select name="category_1">
+                <% @category_1.each do |category| %>
+                    <option value="<%= category %>"><%= category %></option>
+                <% end %>
+            </select>
+
+            <p>小カテゴリ</p>
+            <textarea name="category_2"></textarea>
+            <p>メモ</p>
+            <textarea name="memo"></textarea>
+            <br>
+            <input type="submit">
         <% end %>
-    </select>
-
-    <p>小カテゴリ</p>
-    <textarea name="category_2"></textarea>
-    <p>メモ</p>
-    <textarea name="memo"></textarea>
-    <br>
-    <input type="submit">
-<% end %>
+    </div>
+</div>
