@@ -1,7 +1,8 @@
 # 家計簿アプリ
 
 ## 概要
-ruby on rails を用いて 家計簿アプリを開発しました。以下がアプリのリンクです。\\
+ruby on rails を用いて 家計簿アプリを開発しました。以下がアプリのリンクです。
+
 https://myaccountbook.herokuapp.com/login
 
 ## 機能
