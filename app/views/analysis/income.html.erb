@@ -1,13 +1,16 @@
 <h2>今月の収入</h2>
+<div class="container index">
 <% @income.each do |income| %>
-    <p>
-        <%= income.date %>|
-        <%= income.income_or_payment %>|
-        <%= income.amount %>|
-        <%= income.category_1%>|
-        <%= income.category_2%>|
-    </p>
-    <%= link_to("編集","/#{income.id}/edit") %>
-    <%= link_to("削除","/#{income.id}/destroy") %>
-    <hr>
+    <div class="item">
+        <p>
+            <%= income.date %>|
+            <%= income.income_or_payment %>|
+            <%= income.amount %>|
+            <%= income.category_1%>|
+            <%= income.category_2%>|
+        </p>
+        <%= link_to("編集","/#{income.id}/edit") %>
+        <%= link_to("削除","/#{income.id}/destroy") %>
+    </div>
 <% end %>
+</div>

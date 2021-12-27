@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'signup'=>'user#signup'
+  post 'user/create'=>'user#create'
+  get 'login'=>'user#login_form'
+  post 'login'=>'user#login'
+  post 'logout'=>'user#logout'
+
+
   get 'analysis/show'
 
   get '/'=>'home#index'

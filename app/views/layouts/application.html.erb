@@ -15,15 +15,31 @@
             <a href='/'>家計簿アプリ</a>
         </div>
         <ul>
+          <% if @current_user %>
           <li>
             <a href='/new'>記録する</a>
           </li>
           <li>
             <a href='/analysis/show'>分析</a>
           </li>
+          <li>
+            <%= link_to("ログアウト","/logout",{method:"post"})%>
+          </li>
+          <li>
+            <%= @current_user.name %>
+          </li>
+          <% else %>
+          <li>
+            <a href='/signup'>新規登録</a>
+          </li>
+          <li>
+            <a href='/login'>ログイン</a>
+          </li>
+          <% end %>
         </ul>
       </div>
     </header>
+    <p><%= flash[:notice] %></p>
     <%= yield %>
   </body>
 </html>

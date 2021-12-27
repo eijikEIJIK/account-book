@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
-  before_action :set_category_1, only: [:new, :edit, :update]
-
+  before_action :set_category_1, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user,only:[:index, :new, :create, :edit, :update, :delete]
+  before_action :ensure_correct_user,only:[:edit, :update, :destroy]
   def index
-    @accounts=Account.all.order('date DESC')
+    @accounts=Account.where(user_id: session[:user_id]).order('date DESC')
   end
 
   def new
@@ -17,6 +18,7 @@ class HomeController < ApplicationController
       category_1: params[:category_1],
       category_2: params[:category_2],
       memo: params[:memo], 
+      user_id:session[:user_id]
     )
     if @account.save
       redirect_to('/')
@@ -58,5 +60,15 @@ class HomeController < ApplicationController
   private
   def set_category_1
     @category_1=["食料品","日用品","交通費","交際費","趣味","教育","衣服","医療","通信費","光熱費","家","給料","臨時収入","その他"]
+  end
+
+  def ensure_correct_user
+    @account=Account.find_by(id:params[:id])
+    if @account
+      if @account.user_id != session[:user_id]
+        flash[:notice]="権限がありません"
+      end
+      redirect_to("/")
+    end
   end
 end

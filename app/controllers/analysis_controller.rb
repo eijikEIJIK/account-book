@@ -3,7 +3,10 @@ class AnalysisController < ApplicationController
     now=Date.today
 
     tmp=Account.where(
-      "(date >= ?) AND (income_or_payment=?)",now.at_beginning_of_month,'payment'
+      "(date >= ?) AND (income_or_payment=?) AND (user_id=?)",
+      now.at_beginning_of_month,
+      'payment',
+      session[:user_id]
       )
     
     @payment=tmp.sum(:amount)
