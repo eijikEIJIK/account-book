@@ -1,24 +1,11 @@
-# README
+#家計簿アプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##概要
+ruby on rails を用いて 家計簿アプリを開発しました。以下がアプリのリンクです。
+https://myaccountbook.herokuapp.com/login
 
-Things you may want to cover:
+##機能
+ユーザー登録すると、収支の記録、編集、削除、参照、当月の収支の閲覧が可能になる。
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
