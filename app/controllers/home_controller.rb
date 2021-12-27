@@ -67,8 +67,8 @@ class HomeController < ApplicationController
     if @account
       if @account.user_id != session[:user_id]
         flash[:notice]="権限がありません"
+        redirect_to("/")
       end
-      redirect_to("/")
     end
   end
 end
